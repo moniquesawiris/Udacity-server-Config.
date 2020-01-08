@@ -24,7 +24,7 @@ APPLICATION_NAME = "Item Catalog Application"
 
 
 # Connect to Database and create database session
-engine = create_engine('sqlite:///itemcatalog.db')
+engine = create_engine('sqlite:////var/www/catalog/itemcatalog.db')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
@@ -269,7 +269,7 @@ def deleteCatalogItem(category_id, catalog_item_id):
 def showLogin():
     state = ''.join(
         random.choice(
-            string.ascii_uppercase + string.digits) for x in xrange(32))
+            string.ascii_uppercase + string.digits) for x in range(32))
     login_session['state'] = state
     return render_template('login.html', STATE=state)
 
